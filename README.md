@@ -8,6 +8,7 @@
 
 ## Useful Links:
 1. VCV Rack 2: https://vcvrack.com/
+2. VCV free module manuals: https://vcvrack.com/Free#VCO2
 
 ## Related Links:
 
