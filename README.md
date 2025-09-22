@@ -54,6 +54,11 @@ void setOffset() {
   OffsetFlag = 1;
 }
 
+//Theremin sense variables
+float CapSenseValue = 0;
+float smoothedCapSense = 0;
+float pulseScale = 2;
+
 //IR sensor variables
 #define IRPin A0
 SharpIR IRSensor(SharpIR::GP2Y0A21YK0F, IRPin);
