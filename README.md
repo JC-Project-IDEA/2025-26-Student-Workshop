@@ -10,7 +10,7 @@
 - [Lesson 1: Introduction](https://docs.google.com/presentation/d/1WSr9kcV1-ZjsRH_j-11dmlGryh9tGZXPMCw8sXCov08/edit?usp=sharing)
 - [Lesson 2: Assembly & Arduino](https://docs.google.com/presentation/d/19V55PmKnhZj6ZIIb1CYu6AyAa-iCVDYn30vg3Tqv0Sw/edit?usp=sharing)
 - [Lesson 3: Working With VCV Rack 2](https://docs.google.com/presentation/d/10nIk9Jp0Kmlm_R8HbipU5P-_flwunWAbKxvU4t2fisc/edit?usp=sharing)
-- [Movemin Assembly Guide]([https://github.com/JC-Project-IDEA/2025-26-Student-Workshop/blob/main/Slides/Movemin%20Assembly%20Guide.pdf](https://github.com/JC-Project-IDEA/2025-26-Student-Workshop/blob/main/Slides/Assembly%20Guide%20for%20Workshops.pdf))
+- [Movemin Assembly Guide](https://github.com/JC-Project-IDEA/2025-26-Student-Workshop/blob/28620ab0dedbc34ca16eff0b042d239f05b2dca1/Slides/Assembly%20Guide%20for%20Workshops.pdf)  
 
 ## Useful Links:
 1. VCV Rack 2: https://vcvrack.com/
