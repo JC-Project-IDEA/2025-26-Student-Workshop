@@ -7,10 +7,10 @@
 賽馬會科藝共融計劃（Jockey Club Project IDEA）由香港賽馬會慈善信託基金捐助、香港城市大學主辦，旨在提升本地中學教師及學生對藝術科技的認識和能力，透過工作坊讓他們掌握如何應用數碼科技進行藝術創作，為傳統創作方式注入新元素，創造更多別樹一格的表現方式。同時，本計劃將透過分享和體驗活動提升學生對共融藝術的意識，啟發他們反思如何讓殘疾人士欣賞藝術及參與藝術活動，透過藝術科技建立共融的社會。 
 
 ## Lesson Slides:
-- Lesson 1: 
-- Lesson 2: 
-- Lesson 3: 
-- Assembly Guide: 
+- [Lesson 1: Introduction](https://docs.google.com/presentation/d/1WSr9kcV1-ZjsRH_j-11dmlGryh9tGZXPMCw8sXCov08/edit?usp=sharing)
+- [Lesson 2: Assembly & Arduino](https://docs.google.com/presentation/d/19V55PmKnhZj6ZIIb1CYu6AyAa-iCVDYn30vg3Tqv0Sw/edit?usp=sharing)
+- [Lesson 3: Working With VCV Rack 2](https://docs.google.com/presentation/d/10nIk9Jp0Kmlm_R8HbipU5P-_flwunWAbKxvU4t2fisc/edit?usp=sharing)
+- [Movemin Assembly Guide]()
 
 ## Useful Links:
 1. VCV Rack 2: https://vcvrack.com/
