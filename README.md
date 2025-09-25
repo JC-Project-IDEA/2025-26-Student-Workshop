@@ -23,7 +23,6 @@
 // External lbiraries required, make sure the library is downloaded before compiling the code
 #include <SharpIR.h>
 #include <MIDIUSB.h>
-#include <CapacitiveSensor.h>
 
 long TimeSerial = 0;  //Serial update time
 
