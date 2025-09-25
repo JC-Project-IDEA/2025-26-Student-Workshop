@@ -18,11 +18,12 @@
 
 ## Related Links:
 
-## Theremin IR Sculpture (Updated: 2025/09/18)
+## Theremin IR Sculpture (Updated: 2025/09/23)
 ```sh
 // External lbiraries required, make sure the library is downloaded before compiling the code
 #include <SharpIR.h>
 #include <MIDIUSB.h>
+#include <CapacitiveSensor.h>
 
 long TimeSerial = 0;  //Serial update time
 
@@ -49,7 +50,7 @@ long Offset = 0;
 int OffsetFlag = 0;
 // Auto-calibration function
 void setOffset() {
-  Offset = pulseWidth + 5;  //<<<<<<<<<<<<< Auto
+  Offset = pulseWidth + 10;  //<<<<<<<<<<<<< Auto
   //Offset = 3663;  //<<<<<<<<<<<<< Manual
   OffsetFlag = 1;
 }
@@ -69,32 +70,31 @@ float maxDistance = 40;
 float minDistance = 10;
 
 //For all sensors
-float smoothingFactor = 0.03;  //<<<<<<<<<<<<< Sensor value smoothness
+float smoothingFactor = 0.1;  //<<<<<<<<<<<<< Sensor value smoothness
 
 //MIDI message - Theremin
-int TH_midiChannel = 0;
-int TH_midiCC = 1;
+int TH_midiChannel = 0;  //midi channel
+
+int TH_midiCC = 1;  //midi cc
 int TH_midiCCValue = 0;
 int prevTH_midiCCValue = 0;
-int TH_midiNOTE = 36;
+
+int TH_midiNOTE = 36;  //midi note
 int TH_midiNOTEOn = 0;
 long TH_midiNOTE_buff = 0;
-long TH_midiNOTE_buffTime = 100;
+long TH_midiNOTE_buffTime = 200;
 
 //MIDI message - IR Sensor
-int IR_midiChannel = 1;
-int IR_midiCC = 2;
+int IR_midiChannel = 1;  //midi channel
+
+int IR_midiCC = 2;  //midi cc
 int IR_midiCCValue = 0;
 int prevIR_midiCCValue = 0;
-int IR_midiNOTE = 36;
+
+int IR_midiNOTE = 36;  //midi note
 int IR_midiNOTEOn = 0;
 long IR_midiNOTE_buff = 0;
-long IR_midiNOTE_buffTime = 100;
-
-//MIDI message - Touch Sensor
-int TO_midiChannel = 2;
-int TO_midiCC[4] = { 3, 4, 5, 6 };
-int TO_midiNotes[4] = { 55, 59, 62, 64 };
+long IR_midiNOTE_buffTime = 200;
 
 //MIDI messages function setup
 void noteOn(byte channel, byte pitch, byte velocity) {
@@ -152,7 +152,7 @@ void loop() {
       TH_midiCCValue = 127;
     }
   }
-  if (prevTH_midiCCValue != TH_midiCCValue) {
+  if (prevTH_midiCCValue != TH_midiCCValue && pulseWidth_cal <= Offset) {
     controlChange(TH_midiChannel, TH_midiCC, TH_midiCCValue);
     MidiUSB.flush();
 
@@ -176,12 +176,12 @@ void loop() {
     TH_midiNOTEOn = 0;
   }
 
-  //---------------------------------------------- IRSensor reading and MIDI output
-  readDistance_cm = IRSensor.getDistance();
-  if (readDistance_cm < 45 || readDistance_cm > 10) {
+  //---------------------------------------------- IRSensor reading›
+  readDistance_cm = IRSensor.getDistance();                              //Read IR Sensor raw data
+  if (readDistance_cm < maxDistance || readDistance_cm > minDistance) {  //Update IR Sensor raw data only if the reading is in the range of maximum and minimum distance
     Distance_cm = readDistance_cm;
   }
-  smoothedDistance = (Distance_cm * smoothingFactor) + (smoothedDistance * (1 - smoothingFactor));
+  smoothedDistance = (Distance_cm * smoothingFactor) + (smoothedDistance * (1 - smoothingFactor));  //Smooth out raw data according to smoothingFactor
   Distance_cm = smoothedDistance;
   //Set detective range
   if (Distance_cm > maxDistance) {
@@ -193,7 +193,7 @@ void loop() {
 
   //---------------------------------------------- IRSensor MIDI output
   IR_midiCCValue = (127 - (Distance_cm - minDistance) * (127 / (maxDistance - minDistance)));
-  if (prevIR_midiCCValue != IR_midiCCValue) {
+  if (prevIR_midiCCValue != IR_midiCCValue && readDistance_cm <= maxDistance) {
     controlChange(IR_midiChannel, IR_midiCC, IR_midiCCValue);
     MidiUSB.flush();
 
@@ -243,7 +243,7 @@ void loop() {
   }
 }
 ```
-## Theremin IR Touch (Updated: 2025/09/18)
+## Theremin IR Touch (Updated: 2025/09/23)
 ```sh
 // External lbiraries required, make sure the library is downloaded before compiling the code
 #include <SharpIR.h>
@@ -255,7 +255,7 @@ long TimeSerial = 0;  //Serial update time
 //Pulse capture variables
 volatile uint16_t lastCapture = 0;
 //volatile means the variable will be updated at anytime, no interups
-//uint16_t means 16bit binary for counter usage
+//uint16_t means 16bit binary for counter usage`
 volatile uint16_t pulseWidth = 0;
 volatile bool newPulse = false;
 long pulseWidth_cal = 0;
@@ -275,7 +275,7 @@ long Offset = 0;
 int OffsetFlag = 0;
 // Auto-calibration function
 void setOffset() {
-  Offset = pulseWidth + 5;  //<<<<<<<<<<<<< Auto
+  Offset = pulseWidth + 10;  //<<<<<<<<<<<<< Auto
   //Offset = 3663;  //<<<<<<<<<<<<< Manual
   OffsetFlag = 1;
 }
@@ -303,27 +303,31 @@ long smoothedVelocity[4] = { 0, 0, 0, 0 };
 int cap_threshold[4] = { 1000, 1000, 1000, 1000 };  //<<<<<<<<<<<<< Touch sensitivity configuration
 
 //For all sensors
-float smoothingFactor = 0.03;  //<<<<<<<<<<<<< Sensor value smoothness
+float smoothingFactor = 0.1;  //<<<<<<<<<<<<< Sensor value smoothness
 
 //MIDI message - Theremin
-int TH_midiChannel = 0;
-int TH_midiCC = 1;
+int TH_midiChannel = 0;  //midi channel
+
+int TH_midiCC = 1;  //midi cc
 int TH_midiCCValue = 0;
 int prevTH_midiCCValue = 0;
-int TH_midiNOTE = 36;
+
+int TH_midiNOTE = 36;  //midi note
 int TH_midiNOTEOn = 0;
 long TH_midiNOTE_buff = 0;
-long TH_midiNOTE_buffTime = 100;
+long TH_midiNOTE_buffTime = 200;
 
 //MIDI message - IR Sensor
-int IR_midiChannel = 1;
-int IR_midiCC = 2;
+int IR_midiChannel = 1;  //midi channel
+
+int IR_midiCC = 2;  //midi cc
 int IR_midiCCValue = 0;
 int prevIR_midiCCValue = 0;
-int IR_midiNOTE = 36;
+
+int IR_midiNOTE = 36;  //midi note
 int IR_midiNOTEOn = 0;
 long IR_midiNOTE_buff = 0;
-long IR_midiNOTE_buffTime = 100;
+long IR_midiNOTE_buffTime = 200;
 
 //MIDI message - Touch Sensor
 int TO_midiChannel = 2;
@@ -392,7 +396,7 @@ void loop() {
       TH_midiCCValue = 127;
     }
   }
-  if (prevTH_midiCCValue != TH_midiCCValue) {
+  if (prevTH_midiCCValue != TH_midiCCValue && pulseWidth_cal <= Offset) {
     controlChange(TH_midiChannel, TH_midiCC, TH_midiCCValue);
     MidiUSB.flush();
 
@@ -416,12 +420,12 @@ void loop() {
     TH_midiNOTEOn = 0;
   }
 
-  //---------------------------------------------- IRSensor reading and MIDI output
-  readDistance_cm = IRSensor.getDistance();
-  if (readDistance_cm < 45 || readDistance_cm > 10) {
+  //---------------------------------------------- IRSensor reading›
+  readDistance_cm = IRSensor.getDistance();                              //Read IR Sensor raw data
+  if (readDistance_cm < maxDistance || readDistance_cm > minDistance) {  //Update IR Sensor raw data only if the reading is in the range of maximum and minimum distance
     Distance_cm = readDistance_cm;
   }
-  smoothedDistance = (Distance_cm * smoothingFactor) + (smoothedDistance * (1 - smoothingFactor));
+  smoothedDistance = (Distance_cm * smoothingFactor) + (smoothedDistance * (1 - smoothingFactor));  //Smooth out raw data according to smoothingFactor
   Distance_cm = smoothedDistance;
   //Set detective range
   if (Distance_cm > maxDistance) {
@@ -433,7 +437,7 @@ void loop() {
 
   //---------------------------------------------- IRSensor MIDI output
   IR_midiCCValue = (127 - (Distance_cm - minDistance) * (127 / (maxDistance - minDistance)));
-  if (prevIR_midiCCValue != IR_midiCCValue) {
+  if (prevIR_midiCCValue != IR_midiCCValue && readDistance_cm <= maxDistance) {
     controlChange(IR_midiChannel, IR_midiCC, IR_midiCCValue);
     MidiUSB.flush();
 
@@ -479,7 +483,7 @@ void loop() {
     }
     if (touch[i] < cap_threshold[i] && NoteOn[i] > 0) {
       NoteOn[i] = 0;
-      noteOff(TO_midiChannel, TO_midiNotes[i], 0);
+      noteOff(TO_midiChannel, TO_midiNotes[i], 127);
       MidiUSB.flush();
     }
   }
