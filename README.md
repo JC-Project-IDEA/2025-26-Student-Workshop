@@ -6,6 +6,18 @@
 ## 🎨 工作坊內容簡介：
 賽馬會科藝共融計劃（Jockey Club Project IDEA）由香港賽馬會慈善信託基金捐助、香港城市大學主辦，旨在提升本地中學教師及學生對藝術科技的認識和能力，透過工作坊讓他們掌握如何應用數碼科技進行藝術創作，為傳統創作方式注入新元素，創造更多別樹一格的表現方式。同時，本計劃將透過分享和體驗活動提升學生對共融藝術的意識，啟發他們反思如何讓殘疾人士欣賞藝術及參與藝術活動，透過藝術科技建立共融的社會。 
 
+## 🎵 Movemin ｜結合感測與聲音合成，自製演奏音樂的控制器
+【工作坊介紹】
+Movemin 靈感來自經典電子樂器 特雷門琴（Theremin），是一個憑演奏者身體與天線之間距離的變化，來控制聲音頻率的聲音裝置。同學將製作屬於自己的電子樂器 Movemin，探索「Musical expression for all」的可能性：重新思考演奏樂器的操作方式，嘗試透過不同的肢體動作或工具與裝置互動，並搭配電腦預設的音樂程式，創造出多元且獨特的聲音表現，讓更多人能參與音樂與互動藝術的體驗。
+
+【學習重點】
+- ⁠通達設計：運用五金材料，動手製作動態雕塑或觸控鍵盤，打造能讓不同能力人士共同參與的樂器介面。
+- ⁠從電路到聲音：學習基礎電子電路與機械原理，並透過程式編碼（如 Arduino），掌握將物理互動轉化為聲音訊號的技術。
+- 聲音設計入門：使用虛擬模組合成器 VCV Rack，透過串連(Patching) 各種訊號模組，創作屬於自己的獨特音色與效果。
+
+【成果展示】
+學員於工作坊中完成的優秀作品，將有機會獲選於年度展覽中公開展出。
+
 ## 📖 學習資料下載 :
 - 第一堂 [Lesson 1: Introduction](https://docs.google.com/presentation/d/1WSr9kcV1-ZjsRH_j-11dmlGryh9tGZXPMCw8sXCov08/edit?usp=sharing)
 - 第二堂 [Lesson 2: Assembly & Arduino](https://docs.google.com/presentation/d/19V55PmKnhZj6ZIIb1CYu6AyAa-iCVDYn30vg3Tqv0Sw/edit?usp=sharing)
@@ -15,8 +27,6 @@
 ## Useful Links:
 1. VCV Rack 2: https://vcvrack.com/
 2. VCV free module manuals: https://vcvrack.com/Free#VCO2
-
-## Related Links:
 
 ## Theremin IR Sculpture (Updated: 2025/09/23)
 ```sh
