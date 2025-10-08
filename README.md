@@ -27,6 +27,9 @@ Movemin 靈感來自經典電子樂器 特雷門琴（Theremin），是一個憑
 ## Useful Links:
 1. VCV Rack 2: https://vcvrack.com/
 2. VCV free module manuals: https://vcvrack.com/Free#VCO2
+3. Arduino IDE: https://www.arduino.cc/en/software/
+4. Midi Monitor:  https://www.snoize.com/MIDIMonitor/
+5. Midi OX:  www.midiox.com
 
 ## Theremin IR Sculpture (Updated: 2025/09/23)
 ```sh
