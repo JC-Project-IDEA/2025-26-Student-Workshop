@@ -24,16 +24,16 @@ Movemin 靈感來自經典電子樂器 特雷門琴（Theremin），是一個憑
 - 第三堂 [Lesson 3: Working With VCV Rack 2](https://docs.google.com/presentation/d/10nIk9Jp0Kmlm_R8HbipU5P-_flwunWAbKxvU4t2fisc/edit?usp=sharing)
 - 組裝指南 [Movemin Assembly Guide](https://github.com/JC-Project-IDEA/2025-26-Student-Workshop/blob/28620ab0dedbc34ca16eff0b042d239f05b2dca1/Slides/Assembly%20Guide%20for%20Workshops.pdf)  
 
-## 🙋🏻🙋🏻‍♂️🙋🏻‍♀️ 報名參展：
-2025/26 年度展覽將於 2026 年 1 月 30 日至 2 月 9 日假香港文化中心舉行，學生可點擊以下連結報名參展：
-- https://tinyurl.com/IDEA-exhi202526
-
 ## Useful Links:
 1. VCV Rack 2: https://vcvrack.com/
 2. VCV free module manuals: https://vcvrack.com/Free#VCO2
 3. Arduino IDE: https://www.arduino.cc/en/software/
 4. Midi Monitor:  https://www.snoize.com/MIDIMonitor/
 5. Midi OX:  www.midiox.com
+
+## 🙋🏻🙋🏻‍♂️🙋🏻‍♀️ 報名參展：
+2025/26 年度展覽將於 2026 年 1 月 30 日至 2 月 9 日假香港文化中心舉行，學生可點擊以下連結報名參展：
+- https://tinyurl.com/IDEA-exhi202526
 
 ## Theremin IR Sculpture (Updated: 2025/09/23)
 ```sh
