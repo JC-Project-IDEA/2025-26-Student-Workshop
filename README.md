@@ -31,6 +31,10 @@ Movemin 靈感來自經典電子樂器 特雷門琴（Theremin），是一個憑
 4. Midi Monitor:  https://www.snoize.com/MIDIMonitor/
 5. Midi OX:  www.midiox.com
 
+## 🙋🏻🙋🏻‍♂️🙋🏻‍♀️ 報名參展：
+2025/26 年度展覽將於 2026 年 1 月 30 日至 2 月 9 日假香港文化中心舉行，學生可點擊以下連結報名參展：
+https://tinyurl.com/IDEA-exhi202526
+
 ## Theremin IR Sculpture (Updated: 2025/09/23)
 ```sh
 // External lbiraries required, make sure the library is downloaded before compiling the code
